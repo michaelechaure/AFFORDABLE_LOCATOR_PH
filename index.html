@@ -215,10 +215,12 @@
   display: flex;
   flex-direction: column;
   z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .cart-drawer.open {
-  right: 0;
+  transform: translateX(0);
 }
 
 .cart-header {
@@ -452,8 +454,8 @@
   window.addEventListener('resize', () => updateSlide(currentSlide));
 
     function toggleCart() {
-    const drawer = document.getElementById('cartDrawer');
-    drawer.classList.toggle('open');
+    const cart = document.getElementById('cartDrawer');
+    cart.classList.toggle('open');
   }
 
     function updateCart(items = []) {
