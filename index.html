@@ -7,6 +7,14 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+:root {
+  --main-bg: #fef9f6;
+  --primary: #b43c3c;
+  --primary-light: #e8c1c1;
+  --text-dark: #2e1a1a;
+  --gold: #d4af37;
+}
+
     * {
       box-sizing: border-box;
     }
@@ -19,11 +27,11 @@
     }
     header {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 1rem;
       background-color: #2b0a0a;
     }
     header img {
-      max-width: 150px;
+      max-width: 180px;
       height: auto;
     }
     h1, h2, h3 {
@@ -114,6 +122,27 @@
       background: #e5c96d;
     }
 
+    nav {
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      color: var(--primary);
+      background-color: #fff;
+      border: 1px solid var(--primary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
     .contact, .business-info {
       background: #512020;
       padding: 2rem;
@@ -143,7 +172,110 @@
         width: 100%;
         text-align: center;
       }
+      nav a {
+        display: inline-block;
+        margin: 0.5rem 0.3rem;
+        font-size: 0.9rem;
+      }
     }
+
+    /* 🛒 Cart Icon Style */
+.cart-icon {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cart-icon:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* 🛍️ Cart Drawer */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-header {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.cart-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.cart-empty {
+  margin: auto;
+  font-size: 1rem;
+  font-style: italic;
+  color: #777;
+  max-width: 200px;
+}
+
+.cart-footer {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary, #333);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background-color: var(--text-dark);
+}
   </style>
 </head>
 <body>
@@ -152,7 +284,31 @@
   <img src="Locator Logo.jpg" alt="Affordable Locator PH Logo" />
   <h1>Affordable Locator PH</h1>
   <p>📍 Suppliers • Warehouse • Bodega • Manufacturer • Factory</p>
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#">SHOP</a>
+    <a href="#">GALLERY</a>
+    <a href="#">ABOUT</a>
+  </nav>
 </header>
+
+<div class="cart-icon" onclick="toggleCart()">
+  🛒
+</div>
+
+<div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <span onclick="toggleCart()" class="close-btn">&times;</span>
+  </div>
+  <div class="cart-content" id="cartContent">
+    <p class="cart-empty">Your cart is empty.</p>
+    <!-- Future: Add dynamic items here -->
+  </div>
+  <div class="cart-footer">
+    <button class="checkout-btn" id="checkoutBtn">Continue Shopping</button>
+  </div>
+</div>
 
 <div class="container">
 
@@ -218,9 +374,10 @@
           <img src="image_5.jpg" alt="Legit Planta, Manufacturer, Factory at iba pa">
           <div class="carousel-text">
             <h3>🏭 Legit Planta, Manufacturer, Factory at iba pa</h3>
-            <p>✅ Complete Info and Sources
-✅ Unlimited Leads
-✅ Updates ng mga bagong locate at suppliers via Private Group</p>
+            <p>
+            ✅ Complete Info and Sources
+            ✅ Unlimited Leads
+            ✅ Updates ng mga bagong locate at suppliers via Private Group</p>
             <a href="https://m.me/affordablelocatorph" class="btn" target="_blank">Message Us to Order</a>
           </div>
         </div>
@@ -243,7 +400,7 @@
   </section>
 
   <section class="contact">
-    <h2>💬 How to Order</h2>
+    <h2>💬 How to Join</h2>
     <p>Just message us on our Facebook page:</p>
     <p><strong><a href="https://facebook.com/affordablelocatorph" target="_blank">📩 Affordable Locator PH</a></strong></p>
     <p>💳 Payment Methods: GCash, PayMaya, Bank Transfer</p>
@@ -293,6 +450,24 @@
   setInterval(showNextSlide, 4000); // Auto-slide every 4 seconds
 
   window.addEventListener('resize', () => updateSlide(currentSlide));
+
+    function toggleCart() {
+    const drawer = document.getElementById('cartDrawer');
+    drawer.classList.toggle('open');
+  }
+
+    function updateCart(items = []) {
+    const cartContent = document.getElementById('cartContent');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+
+    if (items.length === 0) {
+      cartContent.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
+      checkoutBtn.textContent = 'Continue Shopping';
+    } else {
+      cartContent.innerHTML = ''; // Render your cart items here
+      checkoutBtn.textContent = 'Checkout';
+    }
+  }
 </script>
 </body>
 </html>
