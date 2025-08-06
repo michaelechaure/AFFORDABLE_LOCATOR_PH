@@ -6,6 +6,8 @@
   <title>Affordable Locator PH</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
 :root {
   --main-bg: #fef9f6;
@@ -196,6 +198,8 @@
   cursor: pointer;
   z-index: 1001;
   transition: background-color 0.3s, color 0.3s;
+    font-size: 20px;
+  color: #333;
 }
 
 .cart-icon:hover {
@@ -287,16 +291,17 @@
   <h1>Affordable Locator PH</h1>
   <p>📍 Suppliers • Warehouse • Bodega • Manufacturer • Factory</p>
   <nav>
-    <a href="#">HOME</a>
-    <a href="#">SHOP</a>
+    <a href="index.html">HOME</a>
+    <a href="get_access.html">GET ACCESS</a>
     <a href="#">GALLERY</a>
     <a href="#">ABOUT</a>
   </nav>
 </header>
 
 <div class="cart-icon" onclick="toggleCart()">
-  🛒
+  <i class="fas fa-shopping-cart"></i>
 </div>
+
 
 <div id="cartDrawer" class="cart-drawer">
   <div class="cart-header">
@@ -308,7 +313,7 @@
     <!-- Future: Add dynamic items here -->
   </div>
   <div class="cart-footer">
-    <button class="checkout-btn" id="checkoutBtn">Continue Shopping</button>
+    <button class="checkout-btn" onclick="toggleCart()">Continue Shopping</button>
   </div>
 </div>
 
