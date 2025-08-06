@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Access - Affordable Locator PH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --main-bg: #fef9f6;
+      --primary: #b43c3c;
+      --primary-light: #e8c1c1;
+      --text-dark: #2e1a1a;
+      --gold: #d4af37;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #3a0d0d;
+      color: #f0e6d6;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      background-color: #2b0a0a;
+    }
+
+    header img {
+      max-width: 180px;
+      height: auto;
+    }
+
+    h1, h2, h3 {
+      color: #ffd700;
+      margin: 0.5rem 0;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      color: var(--primary);
+      background-color: #fff;
+      border: 1px solid var(--primary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .plans-section {
+      text-align: center;
+    }
+
+    .plans {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .plan {
+      background: #512020;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 320px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plan:hover {
+      transform: translateY(-5px);
+    }
+
+    .plan h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      text-align: left;
+    }
+
+    .features li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #704545;
+      padding-left: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      background: var(--gold);
+      color: #3a0d0d;
+      border-radius: 0.4rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin-top: auto;
+    }
+
+    .btn:hover {
+      background: #e5c96d;
+    }
+
+    footer {
+      text-align: center;
+      background: #2b0a0a;
+      color: var(--gold);
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 700px) {
+      .plans {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="Locator Logo.jpg" alt="Affordable Locator PH Logo" />
+  <h1>Get Locator Access</h1>
+  <p>🔐 Choose your access level to unlock our verified supplier list</p>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="get_access.html">GET ACCESS</a>
+    <a href="#">GALLERY</a>
+    <a href="#">ABOUT</a>
+  </nav>
+</header>
+
+<div class="container">
+  <section class="plans-section">
+    <h2>📦 Available Access Plans</h2>
+    <p>Select a plan and proceed to payment to receive your Locator files.</p>
+
+    <div class="plans">
+
+      <!-- ₱350 Plan -->
+      <div class="plan">
+        <h2>Basic Access</h2>
+        <div class="price">₱350.00</div>
+        <ul class="features">
+          <li>✅ Lifetime Group Access</li>
+          <li>✅ 2000 Suppliers List</li>
+          <li>✅ Importer + Exporter</li>
+          <li>✅ Automatic Update</li>
+          <li>✅ Lifetime Unlimited Suppliers</li>
+          <li>✅ Freebies: E-Books</li>
+          <li>✅ One-time payment</li>
+        </ul>
+        <a href="payment-350.html" class="btn">Proceed with ₱350</a>
+      </div>
+
+      <!-- ₱500 Plan -->
+      <div class="plan">
+        <h2>Premium Access</h2>
+        <div class="price">₱500.00</div>
+        <ul class="features">
+          <li>✅ Priority Supplier List</li>
+          <li>✅ One-Time Access</li>
+          <li>✅ Same-Day Delivery</li>
+        </ul>
+        <a href="payment-500.html" class="btn">Proceed with ₱500</a>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Affordable Locator PH. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

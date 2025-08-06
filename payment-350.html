@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - ₱350 Access | Affordable Locator PH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: #3a0d0d;
+      --primary: #ffd700;
+      --text: #f0e6d6;
+      --gold: #d4af37;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background-color: #2b0a0a;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      color: var(--main-bg);
+      background-color: #fff;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: #2b0a0a;
+    }
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .qr-frame {
+      display: inline-block;
+      padding: 1rem;
+      background-color: #4d1a1a;
+      border: 2px dashed var(--primary);
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      margin: 2rem auto;
+    }
+
+    .qr-img {
+      max-width: 85%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: var(--main-bg);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+
+    .btn:hover {
+      background-color: var(--gold);
+    }
+
+    .hidden { display: none; }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid var(--primary);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 2rem auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .tracking-box {
+      background-color: #512020;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      margin-top: 2rem;
+    }
+
+    .form-section {
+      background-color: #4d1a1a;
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 0.4rem;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background-color: var(--gold);
+      color: #3a0d0d;
+      font-weight: bold;
+      padding: 0.7rem 1.4rem;
+      border: none;
+      border-radius: 0.4rem;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #f6dc78;
+    }
+
+    footer {
+      text-align: center;
+      background: #2b0a0a;
+      color: var(--primary);
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Affordable Locator PH</h1>
+    <p>Secure your lifetime access below</p>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="get_access.html">GET ACCESS</a>
+      <a href="#">GALLERY</a>
+      <a href="#">ABOUT</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Step 1: Scan & Pay ₱350 via GCash</h2>
+    <p style="margin-top: 1rem; font-weight: bold; color: #ffd700;">
+      📌 After scanning the QR code, please pay exactly <span style="color: #e5c96d;">₱350</span>. 
+      Don’t forget to take a screenshot of your payment for verification.
+    </p>
+
+    <div class="qr-frame">
+      <img src="gcash-qr.png" alt="GCash QR Code" class="qr-img" oncontextmenu="return false;">
+    </div>
+
+    <button class="btn" id="proceedBtn" onclick="generateTracking()">Proceed with ₱350</button>
+    <div id="loader" class="loader hidden"></div>
+
+    <div id="result" class="tracking-box hidden">
+      <h3>✅ Your Tracking Number:</h3>
+      <p id="trackingNum" style="font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;"></p>
+      <p style="margin-top: 1rem;">Please keep this number and proceed to upload your payment proof in the next step.</p>
+    </div>
+
+    <form id="clientForm" class="form-section hidden">
+      <h3>Step 2: Submit Your Proof</h3>
+      <div class="form-group">
+        <label for="cfName">Full Name:</label>
+        <input type="text" id="cfName" required>
+      </div>
+      <div class="form-group">
+        <label for="cfEmail">Email Address:</label>
+        <input type="email" id="cfEmail" required>
+      </div>
+      <button type="button" id="formBtn" class="submit-btn">Continue to Upload Form</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Affordable Locator PH. All rights reserved.</p>
+  </footer>
+
+<script>
+  const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfB-WIbMnqG0HBM9pN1Pn469TjQjVhcfAgbBGQhb6_ODXGhwA/viewform?usp=pp_url";
+  const formBtn = document.getElementById("formBtn");
+  const cfName = document.getElementById("cfName");
+  const cfEmail = document.getElementById("cfEmail");
+
+  function generateTracking() {
+    const proceedBtn = document.getElementById("proceedBtn");
+    const loader = document.getElementById("loader");
+    const resultSection = document.getElementById("result");
+    const trackingText = document.getElementById("trackingNum");
+    const clientForm = document.getElementById("clientForm");
+
+    proceedBtn.disabled = true;
+    proceedBtn.style.display = "none";
+    loader.classList.remove("hidden");
+
+    setTimeout(() => {
+      loader.classList.add("hidden");
+      resultSection.classList.remove("hidden");
+
+      // Generate tracking in 12-hour format with AM/PM
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // handle 12 AM/PM
+      const timeStr = `${hours}${minutes}${ampm}`;
+      const millis = now.getTime().toString().slice(-4);
+      const tracking = `ALPH-${timeStr}-${millis}`;
+
+      trackingText.textContent = tracking;
+
+      clientForm.classList.remove("hidden");
+
+      formBtn.onclick = () => {
+        const fullName = encodeURIComponent(cfName.value);
+        const email = encodeURIComponent(cfEmail.value);
+        const url = `${formURL}&entry.319712009=${fullName}&entry.251539675=${email}&entry.2058164346=${tracking}`;
+        window.open(url, "_blank");
+      };
+    }, 2000);
+  }
+
+  // Disable right-click on images
+  document.addEventListener("contextmenu", function(e) {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+    }
+  });
+</script>
+
+</body>
+</html>
